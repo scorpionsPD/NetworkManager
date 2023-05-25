@@ -11,20 +11,18 @@ To use this code, you would first create a data model that conforms to the Decod
 
 Then, you would create an instance of NetworkManager and call the fetch method with the URL of the REST API endpoint:
 
- let networkManager = NetworkManager()
+import NetworkLibrary
 
- let url = URL(string: "https://example.com/users")!
- 
-
-   networkManager.fetch(url: url) { (result: Result<[User]>) in
-    
+NetworkManager.shared.request(urlString: "https://api.example.com/data") { (result: Result<MyModel, NetworkError>) in
     switch result {
-    case .success(let users):
-       print(users)
+    case .success(let data):
+        // Handle the successful response
+        print(data)
     case .failure(let error):
-       print(error)
-     }
-  }
+        // Handle the error
+        print(error)
+    }
+}
 
 
-In this example, the completion handler expects an array of User objects, so we specify Result<[User]> as the type parameter when calling the fetch method. The result object will either contain an array of User objects, or an error if something went wrong.
+In this example, the completion handler expects an array of User objects, so we specify Result<MyModel> as the type parameter when calling the fetch method. The result object will either contain an array of User objects, or an error if something went wrong.
