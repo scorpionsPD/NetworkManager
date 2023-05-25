@@ -7,8 +7,8 @@ public enum NetworkError: Error {
     // Add more error cases as needed
 }
 
-public final class NetworkService {
-    public static let shared = NetworkService()
+public final class NetworkManager{
+    public static let shared = NetworkManager()
 
     private init() {}
 
