@@ -5,7 +5,7 @@ enum Result<T> {
     case failure(Error)
 }
 
-class NetworkManager {
+public class NetworkManager {
     
     private let session: URLSession
     
