@@ -13,7 +13,7 @@ public class NetworkManager {
         self.session = session
     }
     
-    func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T>) -> Void) {
+    public func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T>) -> Void) {
         let task = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
